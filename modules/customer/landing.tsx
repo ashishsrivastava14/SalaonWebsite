@@ -92,7 +92,7 @@ export function LandingModule() {
           </Link>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
-          {visibleSalons.slice(0, 3).map((salon) => (
+          {visibleSalons.slice(0, 6).map((salon) => (
             <Link key={salon.id} href={`/salons/${salon.id}`} className="group">
               <Card className="overflow-hidden p-0 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-xl)]">
                 <div className="relative overflow-hidden">
