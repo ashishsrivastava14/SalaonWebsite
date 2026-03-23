@@ -35,10 +35,16 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${playfair.variable} ${allura.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f4eee8] text-[#4f3526]">
+      <body className="flex min-h-full flex-col bg-[var(--background)] text-[var(--foreground)]">
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Toaster richColors position="top-right" />
+        <Toaster
+          richColors
+          position="top-right"
+          toastOptions={{
+            className: "!rounded-xl !shadow-lg !border-[var(--border-light)]",
+          }}
+        />
       </body>
     </html>
   );

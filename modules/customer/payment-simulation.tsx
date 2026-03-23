@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { CreditCard, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useSalonStore } from "@/store/use-salon-store";
@@ -21,11 +22,14 @@ export function PaymentSimulationModule() {
 
   if (!cart) {
     return (
-      <section className="mx-auto max-w-2xl px-4 py-12">
-        <Card>
-          <h1 className="font-serif text-3xl text-[#4f3526]">Payment Session Expired</h1>
-          <p className="mt-2 text-[#6f503f]">Your booking draft is empty.</p>
-          <Link href="/salons" className="mt-4 inline-block">
+      <section className="mx-auto flex min-h-[50vh] max-w-md items-center justify-center px-4 py-12">
+        <Card className="w-full text-center">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--accent-light)]">
+            <CreditCard size={24} className="text-[var(--accent)]" />
+          </div>
+          <h1 className="font-serif text-2xl text-[var(--foreground)]">Payment Session Expired</h1>
+          <p className="mt-2 text-sm text-[var(--muted)]">Your booking draft is empty.</p>
+          <Link href="/salons" className="mt-5 inline-block">
             <Button>Choose Salon</Button>
           </Link>
         </Card>
@@ -51,23 +55,47 @@ export function PaymentSimulationModule() {
   };
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-10">
-      <Card className="space-y-5">
-        <h1 className="font-serif text-4xl text-[#4f3526]">Payment Simulation</h1>
-        <p className="text-sm text-[#6f503f]">
-          This frontend-only flow simulates a payment gateway callback. Choose an outcome to test success/failure UX.
-        </p>
-
-        <div className="rounded-2xl border border-[#eaded3] bg-[#faf4ed] p-4 text-sm text-[#6c4d3b]">
-          Existing bookings in local store: <span className="font-semibold">{bookings.length}</span>
+    <section className="mx-auto flex min-h-[60vh] max-w-lg items-center px-4 py-10">
+      <Card className="w-full space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-[#a07050] text-white shadow-sm">
+            <CreditCard size={20} />
+          </div>
+          <div>
+            <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Payment Simulation</h1>
+            <p className="text-sm text-[var(--muted)]">Test success or failure UX</p>
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3">
-          <Button onClick={() => processPayment(true)} disabled={loadingType !== null}>
-            {loadingType === "success" ? "Processing..." : "Pay & Succeed"}
+        <div className="rounded-xl border border-[var(--border-light)] bg-[var(--background)] p-4 text-sm text-[var(--muted)]">
+          Existing bookings in store: <span className="font-semibold text-[var(--foreground)]">{bookings.length}</span>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Button
+            size="lg"
+            className="w-full"
+            onClick={() => processPayment(true)}
+            disabled={loadingType !== null}
+          >
+            {loadingType === "success" ? (
+              <><Loader2 size={16} className="animate-spin" /> Processing...</>
+            ) : (
+              <><CheckCircle2 size={16} /> Pay & Succeed</>
+            )}
           </Button>
-          <Button variant="danger" onClick={() => processPayment(false)} disabled={loadingType !== null}>
-            {loadingType === "failure" ? "Processing..." : "Pay & Fail"}
+          <Button
+            variant="danger"
+            size="lg"
+            className="w-full"
+            onClick={() => processPayment(false)}
+            disabled={loadingType !== null}
+          >
+            {loadingType === "failure" ? (
+              <><Loader2 size={16} className="animate-spin" /> Processing...</>
+            ) : (
+              <><XCircle size={16} /> Pay & Fail</>
+            )}
           </Button>
         </div>
       </Card>

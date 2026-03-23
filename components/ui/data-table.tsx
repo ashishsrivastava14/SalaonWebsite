@@ -9,22 +9,22 @@ interface DataTableProps {
 
 export function DataTable({ headers, rows, className }: DataTableProps) {
   return (
-    <div className={cn("overflow-auto rounded-2xl border border-[#e8dbcf] bg-white", className)}>
+    <div className={cn("overflow-auto rounded-2xl border border-[var(--border-light)] bg-[var(--surface-raised)] shadow-[var(--shadow-sm)]", className)}>
       <table className="w-full min-w-[640px] text-left">
-        <thead className="bg-[#f8f2ec] text-sm text-[#7a5a45]">
-          <tr>
+        <thead>
+          <tr className="border-b border-[var(--border)]">
             {headers.map((header) => (
-              <th key={header} className="px-4 py-3 font-semibold">
+              <th key={header} className="px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
                 {header}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-[var(--border-light)]">
           {rows.map((row, rowIndex) => (
-            <tr key={rowIndex} className="border-t border-[#eee2d7] text-sm text-[#4f3829]">
+            <tr key={rowIndex} className="text-sm text-[var(--foreground)] transition-colors duration-150 hover:bg-[var(--accent-light)]/50">
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="px-4 py-3 align-middle">
+                <td key={cellIndex} className="px-5 py-3.5 align-middle">
                   {cell}
                 </td>
               ))}

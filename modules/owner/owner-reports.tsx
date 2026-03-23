@@ -26,20 +26,20 @@ export function OwnerReportsModule() {
   return (
     <DashboardShell title="Owner Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Earnings & Reports</h1>
-        <p className="mt-1 text-sm text-[#745746]">Monthly trend view powered by mock data.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Earnings & Reports</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Monthly trend view powered by mock data.</p>
       </Card>
       <Card>
         <div className="h-80 w-full">
           <ResponsiveContainer>
             <AreaChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e6d8ca" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" vertical={false} />
+              <XAxis dataKey="month" axisLine={false} tickLine={false} />
+              <YAxis axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={{ borderRadius: "12px", border: "1px solid var(--border-light)", boxShadow: "var(--shadow-md)" }} />
               <Legend />
-              <Area type="monotone" dataKey="revenue" stroke="#b88b67" fill="#e9d8c6" />
-              <Area type="monotone" dataKey="bookings" stroke="#91674c" fill="#f2e7dc" />
+              <Area type="monotone" dataKey="revenue" stroke="var(--accent)" fill="var(--accent-light)" strokeWidth={2} />
+              <Area type="monotone" dataKey="bookings" stroke="#91674c" fill="var(--accent-muted)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>

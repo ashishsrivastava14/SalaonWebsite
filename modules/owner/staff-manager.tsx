@@ -45,8 +45,11 @@ export function StaffManagerModule() {
 
   return (
     <DashboardShell title="Owner Panel" links={links}>
-      <Card className="flex items-center justify-between">
-        <h1 className="font-serif text-3xl text-[#4f3526]">Manage Staff</h1>
+      <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Manage Staff</h1>
+          <p className="text-sm text-[var(--muted)]">Add or remove team members</p>
+        </div>
         <Button onClick={() => setOpen(true)}>Add Staff</Button>
       </Card>
 

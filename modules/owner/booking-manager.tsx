@@ -35,8 +35,8 @@ export function BookingManagerModule() {
   return (
     <DashboardShell title="Owner Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Booking Management</h1>
-        <p className="mt-1 text-sm text-[#745746]">Accept, reject, or reschedule appointments.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Booking Management</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Accept, reject, or reschedule appointments.</p>
       </Card>
 
       <DataTable

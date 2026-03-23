@@ -33,8 +33,8 @@ export function SlotManagerModule() {
   return (
     <DashboardShell title="Owner Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Manage Time Slots</h1>
-        <p className="mt-1 text-sm text-[#745746]">Toggle slot availability in real-time mock mode.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Manage Time Slots</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Toggle slot availability in real-time mock mode.</p>
       </Card>
 
       <DataTable

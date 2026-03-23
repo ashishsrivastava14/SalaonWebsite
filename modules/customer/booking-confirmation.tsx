@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { ShoppingBag, Tag, CreditCard } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -55,12 +56,15 @@ export function BookingConfirmationModule() {
 
   if (!cart || !selectedSalon || !selectedSlot || selectedServices.length === 0) {
     return (
-      <section className="mx-auto max-w-3xl px-4 py-10">
-        <Card>
-          <h1 className="font-serif text-3xl text-[#513625]">No booking draft found</h1>
-          <p className="mt-2 text-[#6d4f3e]">Please select salon, services, and a slot first.</p>
-          <Link href="/salons" className="mt-4 inline-block">
-            <Button>Go to salons</Button>
+      <section className="mx-auto flex min-h-[50vh] max-w-md items-center justify-center px-4 py-10">
+        <Card className="w-full text-center">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--accent-light)]">
+            <ShoppingBag size={24} className="text-[var(--accent)]" />
+          </div>
+          <h1 className="font-serif text-2xl text-[var(--foreground)]">No booking draft found</h1>
+          <p className="mt-2 text-sm text-[var(--muted)]">Please select salon, services, and a slot first.</p>
+          <Link href="/salons" className="mt-5 inline-block">
+            <Button>Browse Salons</Button>
           </Link>
         </Card>
       </section>
@@ -77,53 +81,63 @@ export function BookingConfirmationModule() {
   };
 
   return (
-    <section className="mx-auto grid w-full max-w-6xl gap-5 px-4 py-8 lg:grid-cols-[1.2fr_1fr]">
+    <section className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
       <Card>
-        <h1 className="font-serif text-3xl text-[#523626]">Booking Confirmation</h1>
-        <p className="mb-5 mt-1 text-sm text-[#725341]">Fill in details to continue to payment simulation.</p>
+        <div className="mb-6 flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-light)]">
+            <CreditCard size={18} className="text-[var(--accent)]" />
+          </div>
+          <div>
+            <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Confirm Booking</h1>
+            <p className="text-sm text-[var(--muted)]">Fill in details to continue to payment</p>
+          </div>
+        </div>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label className="mb-1 block text-xs font-semibold text-[#7b5b46]">Full Name</label>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Full Name</label>
             <Input {...form.register("fullName")} />
             {form.formState.errors.fullName && <p className="mt-1 text-xs text-red-500">{form.formState.errors.fullName.message}</p>}
           </div>
           <div>
-            <label className="mb-1 block text-xs font-semibold text-[#7b5b46]">Phone</label>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Phone</label>
             <Input {...form.register("phone")} />
             {form.formState.errors.phone && <p className="mt-1 text-xs text-red-500">{form.formState.errors.phone.message}</p>}
           </div>
           <div>
-            <label className="mb-1 block text-xs font-semibold text-[#7b5b46]">Special Note</label>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Special Note</label>
             <textarea
               {...form.register("note")}
-              className="min-h-24 w-full rounded-xl border border-[#d9cabd] px-3 py-2 text-sm outline-none focus:border-[#b88b67]"
+              className="min-h-24 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--foreground)] shadow-[var(--shadow-sm)] outline-none transition-all placeholder:text-[var(--muted-light)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-light)]"
               placeholder="Any preference for stylist or service?"
             />
           </div>
-          <div className="grid gap-2 sm:grid-cols-[1fr_auto]">
-            <Input {...form.register("couponCode")} placeholder="Coupon e.g. GLOW10" />
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={() => {
-                const code = form.getValues("couponCode");
-                if (!code) {
-                  toast.error("Enter coupon code first.");
-                  return;
-                }
-                const couponResult = applyCoupon(code);
-                if (couponResult.isValid) {
-                  setAppliedDiscount(couponResult.discountPercent);
-                  toast.success(`Coupon applied: ${couponResult.discountPercent}% off`);
-                } else {
-                  setAppliedDiscount(0);
-                  toast.error("Invalid coupon code");
-                }
-              }}
-            >
-              Apply
-            </Button>
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Coupon Code</label>
+            <div className="grid gap-2 sm:grid-cols-[1fr_auto]">
+              <Input {...form.register("couponCode")} placeholder="e.g. GLOW10" />
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => {
+                  const code = form.getValues("couponCode");
+                  if (!code) {
+                    toast.error("Enter coupon code first.");
+                    return;
+                  }
+                  const couponResult = applyCoupon(code);
+                  if (couponResult.isValid) {
+                    setAppliedDiscount(couponResult.discountPercent);
+                    toast.success(`Coupon applied: ${couponResult.discountPercent}% off`);
+                  } else {
+                    setAppliedDiscount(0);
+                    toast.error("Invalid coupon code");
+                  }
+                }}
+              >
+                <Tag size={14} /> Apply
+              </Button>
+            </div>
           </div>
 
           <Button className="w-full" size="lg" type="submit">
@@ -132,25 +146,29 @@ export function BookingConfirmationModule() {
         </form>
       </Card>
 
-      <Card>
-        <h2 className="font-serif text-2xl text-[#563a2b]">Booking Summary</h2>
-        <div className="mt-4 space-y-2 text-sm text-[#6f503f]">
-          <p className="font-semibold text-[#563a2b]">{selectedSalon.name}</p>
+      <Card className="h-fit lg:sticky lg:top-24">
+        <h2 className="font-serif text-xl text-[var(--foreground)]">Booking Summary</h2>
+        <div className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+          <p className="font-semibold text-[var(--foreground)]">{selectedSalon.name}</p>
           <p>{selectedSalon.location}</p>
-          <p>Slot: {selectedSlot.date} at {selectedSlot.startTime}</p>
+          <p className="rounded-lg bg-[var(--accent-light)] px-3 py-2 text-[var(--foreground)]">
+            {selectedSlot.date} at {selectedSlot.startTime}
+          </p>
         </div>
         <div className="mt-4 space-y-2 text-sm">
           {selectedServices.map((service) => (
-            <div key={service.id} className="flex justify-between text-[#6f503f]">
+            <div key={service.id} className="flex justify-between text-[var(--muted)]">
               <span>{service.name}</span>
-              <span>Rs. {service.price}</span>
+              <span className="font-medium text-[var(--foreground)]">Rs. {service.price}</span>
             </div>
           ))}
         </div>
-        <div className="mt-4 space-y-1 border-t border-[#ecdfd4] pt-3 text-sm">
-          <div className="flex justify-between text-[#6f503f]"><span>Subtotal</span><span>Rs. {subtotal}</span></div>
-          <div className="flex justify-between text-[#6f503f]"><span>Discount</span><span>- Rs. {discountAmount}</span></div>
-          <div className="flex justify-between font-semibold text-[#513625]"><span>Total</span><span>Rs. {total}</span></div>
+        <div className="mt-4 space-y-2 border-t border-[var(--border-light)] pt-4 text-sm">
+          <div className="flex justify-between text-[var(--muted)]"><span>Subtotal</span><span>Rs. {subtotal}</span></div>
+          {discountAmount > 0 && (
+            <div className="flex justify-between text-emerald-600"><span>Discount</span><span>- Rs. {discountAmount}</span></div>
+          )}
+          <div className="flex justify-between text-base font-bold text-[var(--foreground)]"><span>Total</span><span>Rs. {total}</span></div>
         </div>
       </Card>
     </section>

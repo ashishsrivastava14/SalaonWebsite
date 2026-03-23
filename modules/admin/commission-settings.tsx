@@ -25,8 +25,8 @@ export function CommissionSettingsModule() {
   return (
     <DashboardShell title="Admin Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Commission Settings</h1>
-        <p className="mt-1 text-sm text-[#735645]">Set platform commission per salon.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Commission Settings</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Set platform commission per salon.</p>
       </Card>
       <DataTable
         headers={["Salon", "Current Rate", "New Rate", "Action"]}

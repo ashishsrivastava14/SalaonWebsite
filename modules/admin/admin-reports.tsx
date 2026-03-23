@@ -26,18 +26,18 @@ export function AdminReportsModule() {
   return (
     <DashboardShell title="Admin Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Reports & Analytics</h1>
-        <p className="mt-1 text-sm text-[#735645]">Mock trends for gross booking value and commission revenue.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Reports & Analytics</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Mock trends for gross booking value and commission revenue.</p>
       </Card>
       <Card>
         <div className="h-80 w-full">
           <ResponsiveContainer>
             <LineChart data={reportData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e6d8ca" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="gross" stroke="#b88b67" strokeWidth={3} dot={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" vertical={false} />
+              <XAxis dataKey="month" axisLine={false} tickLine={false} />
+              <YAxis axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={{ borderRadius: "12px", border: "1px solid var(--border-light)", boxShadow: "var(--shadow-md)" }} />
+              <Line type="monotone" dataKey="gross" stroke="var(--accent)" strokeWidth={3} dot={false} />
               <Line type="monotone" dataKey="commission" stroke="#6d4a35" strokeWidth={3} dot={false} />
             </LineChart>
           </ResponsiveContainer>

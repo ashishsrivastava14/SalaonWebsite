@@ -57,8 +57,11 @@ export function ServiceManagerModule() {
 
   return (
     <DashboardShell title="Owner Panel" links={links}>
-      <Card className="flex items-center justify-between">
-        <h1 className="font-serif text-3xl text-[#4f3526]">Manage Services</h1>
+      <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Manage Services</h1>
+          <p className="text-sm text-[var(--muted)]">Add, edit, or remove services for your salon</p>
+        </div>
         <Button onClick={() => setOpen(true)}>Add Service</Button>
       </Card>
 
@@ -94,7 +97,7 @@ export function ServiceManagerModule() {
           })}
         >
           <Input placeholder="Service name" {...form.register("name")} />
-          <select className="h-11 w-full rounded-xl border border-[#d9cabd] px-3" {...form.register("category")}>
+          <select className="h-11 w-full rounded-xl border border-[var(--border)] bg-white px-3 text-sm text-[var(--foreground)] outline-none transition-all focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-light)]" {...form.register("category")}>
             <option value="Hair">Hair</option>
             <option value="Spa">Spa</option>
             <option value="Makeup">Makeup</option>

@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4eee8;
-  --foreground: #4f3526;
+  --background: #f6f1eb;
+  --foreground: #3d2b1f;
+  --accent: #b88b67;
+  --accent-hover: #a47a58;
+  --accent-light: #f0e4d7;
+  --accent-muted: #e8d5c4;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-raised: rgba(255, 255, 255, 0.97);
+  --border: #e4d5c6;
+  --border-light: #ede2d6;
+  --muted: #8a7265;
+  --muted-light: #a8968a;
+  --danger: #dc4a4a;
+  --success: #3d9a6e;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --shadow-sm: 0 1px 3px rgba(61, 43, 31, 0.04), 0 1px 2px rgba(61, 43, 31, 0.06);
+  --shadow-md: 0 4px 16px rgba(61, 43, 31, 0.06), 0 2px 4px rgba(61, 43, 31, 0.04);
+  --shadow-lg: 0 12px 40px rgba(61, 43, 31, 0.08), 0 4px 12px rgba(61, 43, 31, 0.04);
+  --shadow-xl: 0 20px 60px rgba(61, 43, 31, 0.1), 0 8px 20px rgba(61, 43, 31, 0.06);
 }
 
 @theme inline {
@@ -12,13 +32,20 @@
   --font-serif: var(--font-playfair);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background:
-    radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.55), transparent 35%),
-    radial-gradient(circle at 88% 12%, rgba(184, 139, 103, 0.18), transparent 30%),
-    linear-gradient(180deg, #f5efe9 0%, #f4eee8 100%);
+    radial-gradient(ellipse 80% 60% at 10% 10%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 5%, rgba(184, 139, 103, 0.1), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(184, 139, 103, 0.06), transparent),
+    linear-gradient(180deg, #f7f2ec 0%, #f6f1eb 100%);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-serif {
@@ -29,17 +56,108 @@ body {
   font-family: var(--font-allura), cursive;
 }
 
+/* Animations */
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out both;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #ebe0d4 25%, #f5ede5 37%, #ebe0d4 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+
+/* Glass morphism utility */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-light);
+}
+
+/* Focus ring utility */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent);
 }

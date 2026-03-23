@@ -23,8 +23,8 @@ export function SalonManagementModule() {
   return (
     <DashboardShell title="Admin Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Manage Salons</h1>
-        <p className="mt-1 text-sm text-[#735645]">Control active status and approval workflows.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Manage Salons</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Control active status and approval workflows.</p>
       </Card>
       <DataTable
         headers={["Salon", "Category", "Approved", "Status", "Actions"]}

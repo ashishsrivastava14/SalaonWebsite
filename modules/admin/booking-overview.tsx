@@ -21,8 +21,8 @@ export function BookingOverviewModule() {
   return (
     <DashboardShell title="Admin Panel" links={links}>
       <Card>
-        <h1 className="font-serif text-3xl text-[#4f3526]">Booking Overview</h1>
-        <p className="mt-1 text-sm text-[#735645]">Monitor platform-wide bookings, payments, and status.</p>
+        <h1 className="font-serif text-2xl tracking-tight text-[var(--foreground)]">Booking Overview</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">Monitor platform-wide bookings, payments, and status.</p>
       </Card>
       <DataTable
         headers={["Booking ID", "Salon", "Date", "Amount", "Payment", "Status"]}
