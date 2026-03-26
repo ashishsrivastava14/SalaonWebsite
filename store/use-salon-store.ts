@@ -213,6 +213,7 @@ export const useSalonStore = create<AppState>()(
     }),
     {
       name: "salon-booking-storage",
+      version: 3,
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         role: state.role,
@@ -226,6 +227,19 @@ export const useSalonStore = create<AppState>()(
         cart: state.cart,
         filters: state.filters,
         paymentResult: state.paymentResult,
+      }),
+      migrate: () => ({
+        users: usersSeed,
+        salons: salonsSeed,
+        services: servicesSeed,
+        staff: staffSeed,
+        slots: slotsSeed,
+        bookings: bookingsSeed,
+        role: "customer" as UserRole,
+        currentUserId: "u-c1",
+        cart: null,
+        filters: defaultFilters,
+        paymentResult: null,
       }),
     }
   )

@@ -29,7 +29,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 210,
     avgPrice: 2400,
     coverImage:
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-1.jpg",
     shortDescription: "Trend-forward cuts, color artistry, and polished styling.",
     description:
       "Mirror Muse blends fashion-forward design with classic salon excellence. From personalized hair consultations to high-performance treatments, every appointment is curated for your lifestyle.",
@@ -47,7 +47,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 156,
     avgPrice: 3200,
     coverImage:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-2.jpg",
     shortDescription: "Luxury rituals for hair, skin, and restorative spa sessions.",
     description:
       "Zen Strands is designed as a calm beauty sanctuary offering luxury hair transformations, premium facials, and precision grooming by specialist artists.",
@@ -65,7 +65,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 98,
     avgPrice: 1200,
     coverImage:
-      "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-3.jpg",
     shortDescription: "Affordable style upgrades with reliable service quality.",
     description:
       "Urban Glow focuses on quick yet quality grooming and beauty services tailored to professionals with packed schedules.",
@@ -83,7 +83,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 320,
     avgPrice: 3800,
     coverImage:
-      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-4.jpg",
     shortDescription: "Exclusive makeovers, bridal packages, and red-carpet styling.",
     description:
       "Glamour Haven is the ultimate destination for high-end beauty transformations. From celebrity-inspired makeovers to bespoke bridal packages, every visit is a VIP experience.",
@@ -101,7 +101,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 175,
     avgPrice: 2000,
     coverImage:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-5.jpg",
     shortDescription: "Precision haircuts, beard grooming, and men's styling hub.",
     description:
       "Crown & Cuts delivers sharp, contemporary cuts tailored for the modern gentleman. Expert barbers combine traditional skill with trending styles.",
@@ -119,7 +119,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 245,
     avgPrice: 3500,
     coverImage:
-      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-6.jpg",
     shortDescription: "Holistic spa therapies blended with premium beauty services.",
     description:
       "Velvet Touch combines ancient Ayurvedic wellness with modern beauty science. Indulge in aromatherapy facials, deep-tissue massages, and organic hair treatments.",
@@ -137,7 +137,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 132,
     avgPrice: 2200,
     coverImage:
-      "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-7.jpg",
     shortDescription: "Vibrant nail art, lash extensions, and beauty essentials.",
     description:
       "Bliss & Bloom is a trendy beauty studio specializing in intricate nail designs, lash extensions, brow sculpting, and express beauty services for the style-savvy.",
@@ -155,7 +155,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 88,
     avgPrice: 900,
     coverImage:
-      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-8.jpg",
     shortDescription: "Quick, affordable grooming for everyday confidence.",
     description:
       "The Style Bar offers budget-friendly haircuts, facials, and grooming services without compromising on quality. Walk in, walk out looking your best.",
@@ -173,7 +173,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 198,
     avgPrice: 2600,
     coverImage:
-      "https://images.unsplash.com/photo-1470259078422-826894b933aa?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-9.jpg",
     shortDescription: "Expert coloring, smoothening, and creative hair design.",
     description:
       "Aura Hair Lounge is led by award-winning colorists who specialize in dimensional color, smoothening treatments, and editorial-worthy hair transformations.",
@@ -191,7 +191,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 275,
     avgPrice: 3600,
     coverImage:
-      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-10.jpg",
     shortDescription: "Signature facials, luxury mani-pedis, and skin rejuvenation.",
     description:
       "Radiance Beauty Bar delivers a pampering experience with premium skincare rituals, luxury nail services, and advanced anti-aging treatments curated by dermatologists.",
@@ -209,7 +209,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 65,
     avgPrice: 700,
     coverImage:
-      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-11.jpg",
     shortDescription: "No-frills, fast haircuts and basic grooming at pocket-friendly prices.",
     description:
       "Snip & Style Express is the go-to for students and professionals who want a clean, sharp look without spending big. Quick turnaround, solid results.",
@@ -227,7 +227,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 142,
     avgPrice: 2800,
     coverImage:
-      "https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-12.jpg",
     shortDescription: "Hair extensions, volumizing treatments, and textured styling.",
     description:
       "Enchanted Tresses specializes in luxury hair extensions, tape-ins, and volumizing services. Whether you want length, volume, or a total transformation, this is your studio.",
@@ -245,7 +245,7 @@ export const salonsSeed: Salon[] = [
     reviewCount: 230,
     avgPrice: 3400,
     coverImage:
-      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1400&q=80",
+      "/images/salons/salon-13.jpg",
     shortDescription: "Bridal couture styling, henna artistry, and traditional beauty.",
     description:
       "Ivory & Rose blends Rajasthani heritage beauty traditions with contemporary glam. Renowned for bridal styling, intricate henna designs, and ethnic makeup artistry.",

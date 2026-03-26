@@ -53,7 +53,7 @@ export function LandingModule() {
             <div className="absolute -inset-4 rounded-[2.5rem] bg-white/10 blur-2xl" />
             <div className="relative rounded-[2rem] border border-white/20 bg-white/10 p-3 backdrop-blur-sm shadow-[var(--shadow-xl)]">
               <Image
-                src={visibleSalons[0]?.coverImage ?? "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=80"}
+                src={visibleSalons[0]?.coverImage ?? "/images/salons/salon-1.jpg"}
                 alt="Salon hero"
                 width={960}
                 height={720}
